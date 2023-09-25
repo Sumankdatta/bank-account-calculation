@@ -3,6 +3,8 @@ document.getElementById('btn-deposit').addEventListener('click', function () {
     const depositAmountString = depositAmountField.value;
     const depositAmount = parseFloat(depositAmountString);
 
+    depositAmountField.value = ''
+
     if (isNaN(depositAmount)) {
         return alert('Zero amount')
     }
@@ -15,7 +17,6 @@ document.getElementById('btn-deposit').addEventListener('click', function () {
 
     previousDeposit.innerText = totalDeposit.toFixed(2)
 
-    depositAmountField.value = ''
 
     // Total balance account:
 

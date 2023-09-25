@@ -3,6 +3,8 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
     const withdrawAmountFieldString = withdrawAmountField.value;
     const withdrawAmount = parseFloat(withdrawAmountFieldString);
 
+    withdrawAmountField.value = ''
+
     if (isNaN(withdrawAmount)) {
         return alert('Zero amount')
     }
@@ -34,5 +36,5 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
     const totalBalance = totalBalanceAmount - withdrawAmount
     previousTotalBalance.innerText = totalBalance
 
-    withdrawAmountField.value = ''
+
 })
