@@ -3,6 +3,8 @@ document.getElementById('btn-deposit').addEventListener('click', function () {
     const depositAmountString = depositAmountField.value;
     const depositAmount = parseFloat(depositAmountString);
 
+
+
     const previousDeposit = document.getElementById('deposit-total')
     const previousBalanceAmountString = previousDeposit.innerText;
     const previousBalanceAmount = parseFloat(previousBalanceAmountString)

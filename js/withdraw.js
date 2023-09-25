@@ -3,15 +3,13 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
     const withdrawAmountFieldString = withdrawAmountField.value;
     const withdrawAmount = parseFloat(withdrawAmountFieldString);
 
+
     const previousWithdrawBalance = document.getElementById('withdraw-balance');
     const previousWithdrawBalanceString = previousWithdrawBalance.innerText;
     const previousBalanceAmount = parseFloat(previousWithdrawBalanceString);
 
-    const totalWithdraw = withdrawAmount + previousBalanceAmount;
 
-    previousWithdrawBalance.innerText = totalWithdraw.toFixed(2)
 
-    withdrawAmountField.value = ''
 
     // balance
 
@@ -19,9 +17,18 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
     const previousTotalBalanceString = previousTotalBalance.innerText;
     const totalBalanceAmount = parseFloat(previousTotalBalanceString)
 
-    const totalBalance = totalBalanceAmount - withdrawAmount
+    if (withdrawAmount > totalBalanceAmount) {
+        alert('You have no enough money')
+        return;
+    }
+    //step3
+    const totalWithdraw = withdrawAmount + previousBalanceAmount;
+    previousWithdrawBalance.innerText = totalWithdraw.toFixed(2)
 
+    //final step
+
+    const totalBalance = totalBalanceAmount - withdrawAmount
     previousTotalBalance.innerText = totalBalance
 
-
+    withdrawAmountField.value = ''
 })
