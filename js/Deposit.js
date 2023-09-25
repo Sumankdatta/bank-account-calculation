@@ -3,7 +3,9 @@ document.getElementById('btn-deposit').addEventListener('click', function () {
     const depositAmountString = depositAmountField.value;
     const depositAmount = parseFloat(depositAmountString);
 
-
+    if (isNaN(depositAmount)) {
+        return alert('Zero amount')
+    }
 
     const previousDeposit = document.getElementById('deposit-total')
     const previousBalanceAmountString = previousDeposit.innerText;
